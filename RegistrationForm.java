@@ -77,20 +77,25 @@ public class RegistrationForm extends Application {
         Label gender = new Label("Gender");
         RadioButton m = new RadioButton("Male");
         RadioButton f = new RadioButton("Female");
+        RadioButton o = new RadioButton("Others");
         ToggleGroup group = new ToggleGroup();
         m.setToggleGroup(group);
         f.setToggleGroup(group);
+        o.setToggleGroup(group);
         pane1.add(gender,1,14);
         pane1.add(m,2,14);
         pane1.add(f,2,15);
+        pane1.add(o,2,16);
 
         Label Lang = new Label("Language Known");
         CheckBox Hindi = new CheckBox("Hindi");
         CheckBox Guj = new CheckBox("Gujarati");
         CheckBox Eng = new CheckBox("English");
-        pane1.add(Hindi,2,17);
-        pane1.add(Guj,2,18);
-        pane1.add(Eng,2,19);
+        CheckBox Other = new CheckBox("Others");
+        pane1.add(Hindi,2,18);
+        pane1.add(Guj,2,19);
+        pane1.add(Eng,2,20);
+        pane1.add(Other,2,21);
 
         Button cancel = new Button("Cancel");
         Button submit = new Button("Submit");
@@ -203,8 +208,9 @@ public class RegistrationForm extends Application {
 
             if(a && b && c && emailChecker && numberChecker && !D && !M && !Y && mf && hge){
                 primaryStage.setScene(scene2);
-                wp.setText("Welcome");
+                wp.setText(" Welcome "+fntf.getText()+" "+lntf.getText()+" ! ");
                 pane2.setAlignment(Pos.CENTER);
+                pane2.setStyle("-fx-font:50px CENTER");
                 pane2.add(wp,1,1);
             }
         });
@@ -220,9 +226,11 @@ public class RegistrationForm extends Application {
             CBYear.getSelectionModel().clearSelection();
             m.setSelected(false);
             f.setSelected(false);
+            o.setSelected(false);
             Hindi.setSelected(false);
             Guj.setSelected(false);
             Eng.setSelected(false);
+            Other.setSelected(false);
         });
 
 
